@@ -11,14 +11,21 @@ import com.google.android.material.textfield.TextInputLayout
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
+
         val signup: Button = findViewById(R.id.Signup)
         val email = findViewById<TextInputLayout>(R.id.email).editText
         val pwd = findViewById<TextInputLayout>(R.id.pwd).editText
 
         signup.setOnClickListener {
-            if(email!!.text.toString().lowercase() == "johnleans@email.com"
-                && pwd!!.text.toString().lowercase() == "John1234"){
+            val emailText = email?.text?.toString()?.lowercase()
+            val pwdText = pwd?.text?.toString()
+
+            if (emailText == "johnleans@email.com" && pwdText == "John1234") {
                 Toast.makeText(this, "Login correcte", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(this, "Login incorrecte", Toast.LENGTH_SHORT).show()
             }
         }
 

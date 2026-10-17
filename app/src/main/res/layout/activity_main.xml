@@ -37,8 +37,7 @@
             android:id="@+id/profilePic"
             android:layout_width="wrap_content"
             android:layout_height="90dp"
-            app:srcCompat="@drawable/profileIcon"
-            tools:srcCompat="@drawable/profileIcon" />
+            app:srcCompat="@drawable/profileicon"/>
 
         <TextView
             android:id="@+id/titolLogin"
