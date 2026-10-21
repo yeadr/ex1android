@@ -9,18 +9,17 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val signup: Button = findViewById(R.id.Signup)
-        val email = findViewById<TextInputLayout>(R.id.email).editText
-        val pwd = findViewById<TextInputLayout>(R.id.pwd).editText
-
-        signup.setOnClickListener {
-            val emailText = email?.text?.toString()?.lowercase()
-            val pwdText = pwd?.text?.toString()
+        binding.Signup.setOnClickListener {
+            val emailText = binding.email.editText?.text?.toString()?.lowercase()
+            val pwdText = binding.pwd.editText?.text?.toString()
 
             if (emailText == "johnleans@email.com" && pwdText == "John1234") {
                 Toast.makeText(this, "Login correcte", Toast.LENGTH_SHORT).show()
